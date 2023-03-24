@@ -1,2 +1,3 @@
 import './style.css';
-import './api';
+import apiFnc from './api';
+
