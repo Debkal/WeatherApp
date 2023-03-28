@@ -5,9 +5,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WWapp</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <script src="main.js" defer></script>
 </head>
 <body>
-    
+    <header>W.W.app
+        <span class="material-symbols-outlined">
+            tornado
+            </span>
+    </header>
+    <div class="content" id ="content">
+        <div class="current-weather" id="currentWeather">
+            <div class="weather date-time" id="weatherDateTime"></div>
+            <div class="weather location" id="weatherLocation"></div>
+            <div class="weather temp" id="weatherTemp"></div>
+            <div class="weather description" id="weatherDescription"></div>
+            <div class="weather icon"id ="weatherIcon"></div>
+            <div class="query-box">
+                <input class="query-box-input" id ="queryBox" placeholder="Location">
+                <div class="unit-container">
+                    <button class="unit imperial" id="unitImperial">°F</button>
+                <button class="unit metric" id="unitMetric">°C</button>
+                </div>
+            </div>
+            <div class="error-msg" id="errorMsg"></div>
+        </div>
+        <div class="weather-details" id="weatherDetails">
+            <ul>
+                <li class="weather-detail material-icons">thermostat</li>
+                <li class="weather-detail feel-temp"></li>
+            </ul>
+            <ul>
+                <li class="weather-detail material-symbols-outlined">humidity_mid</li>
+                <li class="weather-detail humidity"></li>
+            </ul>
+            <ul>
+                <li class="weather-detail material-icons">water_drop</li>
+                <li class="weather-detail precipitation"></li>
+            </ul>
+            <ul>
+                <li class="weather-detail material-icons">airwave</li>
+                <li class="weather-detail wind"></li>
+            </ul>
+        </div>
+        <div class="forecast">
+            <div class="forecast-btn">
+                <button class="forecast daily">Daily</button>
+                <button class="forecast hourly">Hourly</button>
+            </div>
+            <div class="forecast-hourly"></div>
+            <div class="forecast-daily">
+                <div id ="currentDay" class="forecast-day">
+                    <div class="daily day" id="dailyDay"></div>
+                    <div class="daily temp" id="dailyTemp">
+                        <div class="daily high" id="dailyHigh"></div>
+                        <div class="daily low" id="dailyLow"></div>
+                    </div>
+                    <div class="daily icon" id="dailyIcon"></div>
+                </div>
+                <div id ="currentDayPlusOne" class="forecast-day-plus-one">
+                    <div class="daily day" id="dailyDay"></div>
+                    <div class="daily temp" id="dailyTemp">
+                        <div class="daily high" id="dailyHigh"></div>
+                        <div class="daily low" id="dailyLow"></div>
+                    </div>
+                    <div class="daily icon" id="dailyIcon"></div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <footer></footer>
 </body>
 </html>

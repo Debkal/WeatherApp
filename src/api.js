@@ -2,7 +2,7 @@
 
 console.log(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${process.env.API_KEY}`)
 class apiFnc{
-
+    //retrieve coordinates based off location query
     static async getCoord(){
         try {
             const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${process.env.API_KEY}`);
@@ -21,6 +21,7 @@ class apiFnc{
   const data = await res.json()
   setDataInDOM(data)
 } */
+    //retrieve api data works!
     static async getWeather(){
         try{
             
@@ -36,6 +37,7 @@ class apiFnc{
             console.error(error);
         }
     }
+    //retrieve full api data works!
     static async getForecast() {
         try{
             
@@ -64,8 +66,6 @@ class apiFnc{
 }
 
 export default apiFnc;
-
-console.log(apiFnc.getForecast())
 
 /* current weather api request*/
 /* https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.API_KEY} */
