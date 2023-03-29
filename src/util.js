@@ -1,4 +1,4 @@
-import {formatInTimeZone} from 'date-fns-tz';
+import {formatInTimeZone,getTimezoneOffset,zonedTimeToUtc} from 'date-fns-tz';
 import apiFnc from './api';
 
 class  utilFnc{
@@ -12,11 +12,32 @@ class  utilFnc{
         }
     }
     //format date
-    static async dateFormat(){
-        const data = await apiFnc.getForecast()
-        const timeData = data.timezone;
-        const formatDate = formatInTimeZone(new Date(),timeData, 'MM/dd/yyyy HH:mm:ss');
-        return formatDate;
+    static async dateFormat(timezone){
+        try{
+        const data = timezone
+        const formatDate = formatInTimeZone(new Date(),data, 'MM/dd/yyyy');
+        return (formatDate);
+        }
+        catch(error){
+            console.error(error);
+        }
+        
+    }
+    static clockFnc(timeOffSet){
+        let offset = timeOffSet/3600;
+        console.log(offset)
+        let d = new Date();
+        let minute = d.getUTCMinutes();
+        let hour = d.getUTCHours();
+        hour += offset;
+        
+        if(hour<0){
+           hour += 24;
+           console.log(hour)
+            return `${hour}:${minute}`;
+        }else{
+            return `${hour}:${minute}`;
+        } 
     }
     static getIcon(query){
         const body = document.querySelector("body");
@@ -54,6 +75,6 @@ class  utilFnc{
 }
 }
 const F = 'F'
-//console.log(utilFnc.dateFormat())
+console.log(utilFnc.clockFnc())
 
 export default utilFnc;

@@ -1,11 +1,12 @@
-
+import domFnc from "./dom";
+import utilFnc from "./util";
 
 console.log(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${process.env.API_KEY}`)
 class apiFnc{
     //retrieve coordinates based off location query
     static async getCoord(){
         try {
-            const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${process.env.API_KEY}`);
+            const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Chicago&APPID=${process.env.API_KEY}`);
             const coordResponse = await response.json()
             return(coordResponse.coord)
             
@@ -22,6 +23,22 @@ class apiFnc{
   setDataInDOM(data)
 } */
     //retrieve api data works!
+    static async getTimeOffset(){
+        try{
+            
+            const coord = await this.getCoord();
+            const lat = coord.lat;
+            const lon = coord.lon;
+
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.API_KEY}`)
+            const weatherResponse = await response.json();
+            const timeOffSet = weatherResponse.timezone;
+            return (utilFnc.clockFnc(timeOffSet));
+        }
+        catch (error){
+            console.error(error);
+        }
+    }
     static async getWeather(){
         try{
             
@@ -31,7 +48,7 @@ class apiFnc{
 
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.API_KEY}`)
             const weatherResponse = await response.json();
-            return weatherResponse;
+            return (weatherResponse);
         }
         catch (error){
             console.error(error);
@@ -47,7 +64,8 @@ class apiFnc{
 
             const response = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.API_KEY}`)
             const weatherResponse = await response.json();
-            return weatherResponse;
+            const timezone= weatherResponse.timezone;
+            return (domFnc.setDataInDom(weatherResponse),utilFnc.dateFormat(timezone));
         }
         catch (error){
             console.error(error);
@@ -65,6 +83,7 @@ class apiFnc{
     }
 }
 
+console.log(apiFnc.getWeather());
 export default apiFnc;
 
 /* current weather api request*/
