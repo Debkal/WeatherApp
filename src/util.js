@@ -1,3 +1,4 @@
+import { minTime } from 'date-fns';
 import {formatInTimeZone,getTimezoneOffset,zonedTimeToUtc} from 'date-fns-tz';
 import apiFnc from './api';
 
@@ -12,7 +13,7 @@ class  utilFnc{
         }
     }
     //format date
-    static async dateFormat(timezone){
+    static dateFormat(timezone){
         try{
         const data = timezone
         const formatDate = formatInTimeZone(new Date(),data, 'MM/dd/yyyy');
@@ -23,8 +24,12 @@ class  utilFnc{
         }
         
     }
-    static clockFnc(timeOffSet){
-        let offset = timeOffSet/3600;
+    static async clockReset(ms){
+        return setInterval(await apiFnc.getTimeOffset(),60000);
+    }
+    static clockFnc(timeOff){
+        console.log(timeOff)
+        let offset = timeOff/3600;
         console.log(offset)
         let d = new Date();
         let minute = d.getUTCMinutes();
@@ -35,7 +40,15 @@ class  utilFnc{
            hour += 24;
            console.log(hour)
             return `${hour}:${minute}`;
-        }else{
+        }else if(minute.toString.length<= 1){
+            
+            minute = minute.toString()
+            minute.padEnd(2,'0');
+            minute.padStart(2,'0');
+                
+            return `${hour}:${minute}`;
+        }
+        else{
             return `${hour}:${minute}`;
         } 
     }
@@ -75,6 +88,6 @@ class  utilFnc{
 }
 }
 const F = 'F'
-console.log(utilFnc.clockFnc())
+
 
 export default utilFnc;
