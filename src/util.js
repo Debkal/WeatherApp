@@ -1,4 +1,4 @@
-import { minTime } from 'date-fns';
+import { minTime,format,formatISO } from 'date-fns';
 import {formatInTimeZone,getTimezoneOffset,zonedTimeToUtc} from 'date-fns-tz';
 import apiFnc from './api';
 
@@ -15,9 +15,15 @@ class  utilFnc{
     //format date
     static dateFormat(timezone){
         try{
-        const data = timezone
-        const formatDate = formatInTimeZone(new Date(),data, 'MM/dd/yyyy');
-        return (formatDate);
+
+        let offset= timezone/3600
+        let d = new Date();
+        let minute = d.getUTCMinutes();
+        let hour = d.getUTCHours();
+        hour += offset;
+        console.log(hour);
+        //const formatDate = formatInTimeZone(new Date(),data, 'MM/dd/yyyy HH:mm');
+        return (hour);
         }
         catch(error){
             console.error(error);
@@ -52,42 +58,75 @@ class  utilFnc{
             return `${hour}:${minute}`;
         } 
     }
-    static getIcon(query){
-        const body = document.querySelector("body");
-            if(query === "sunny"){
+    static getIcon(query,daily=false){
+        const weatherIcon = document.getElementById("weatherIcon");
+        if(daily===true){
+            if(query === "Sunny"){
                 const sun = document.createElement("span")
                 sun.className = "material-icons";
                 sun.innerHTML = "sunny";
-                return (body.appendChild(sun))
-            }else if(query === "cloudy"){
+                return (sun)
+            }else if(query == "Clouds"){
                 const cloud = document.createElement("span")
                 cloud.className = "material-icons";
-                cloud.innerHTML = "cloudy";
-                return (body.appendChild(cloud))
+                cloud.innerHTML = "cloud";
+                return cloud
             }else if(query === "partlycloudy"){
                 const partCloud = document.createElement("span")
                 partCloud.className = "material-icons";
                 partCloud.innerHTML = "partly_cloudy_day";
-                return (body.appendChild(partCloud))
-            }else if(query === "rainy"){
+                return partCloud
+            }else if(query === "Rain"){
                 const rain = document.createElement("span")
-                rain.className = "material-icons";
+                rain.className = "material-symbols-outlined";
                 rain.innerHTML = "rainy";
-                return (body.appendChild(partCloud))
+                return rain
             }else if(query === "thunderStorm"){
                 const thunder = document.createElement("span")
                 thunder.className = "material-icons";
                 thunder.innerHTML = "thunderstorm";
-                return (body.appendChild())
+                return thunder
             }else if(query === "snowy"){
                 const snow = document.createElement("span")
                 snow.className = "material-icons";
                 snow.innerHTML = "weather_snowy";
-                return (body.appendChild())
+                return snow
+            }}
+        else{
+            if(query === "Sunny"){
+                const sun = document.createElement("span")
+                sun.className = "material-icons";
+                sun.innerHTML = "sunny";
+                return (weatherIcon.appendChild(sun))
+            }else if(query == "Clouds"){
+                const cloud = document.createElement("span")
+                cloud.className = "material-icons";
+                cloud.innerHTML = "cloud";
+                return (weatherIcon.appendChild(cloud))
+            }else if(query === "partlycloudy"){
+                const partCloud = document.createElement("span")
+                partCloud.className = "material-icons";
+                partCloud.innerHTML = "partly_cloudy_day";
+                return (weatherIcon.appendChild(partCloud))
+            }else if(query === "Rain"){
+                const rain = document.createElement("span")
+                rain.className = "material-symbols-outlined";
+                rain.innerHTML = "rainy";
+                return (weatherIcon.appendChild(rain))
+            }else if(query === "thunderStorm"){
+                const thunder = document.createElement("span")
+                thunder.className = "material-icons";
+                thunder.innerHTML = "thunderstorm";
+                return (weatherIcon.appendChild(thunder))
+            }else if(query === "snowy"){
+                const snow = document.createElement("span")
+                snow.className = "material-icons";
+                snow.innerHTML = "weather_snowy";
+                return (weatherIcon.appendChild(snow))
+            }
+        }   
     }
 }
-}
-const F = 'F'
 
 
 export default utilFnc;
