@@ -16,7 +16,7 @@
     "dotenv": "^16.0.3",
     "style-loader": "^3.3.2",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.13.2"
+    "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
     "date-fns-tz": "^2.0.0"

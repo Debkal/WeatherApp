@@ -1,16 +1,14 @@
 import domFnc from "./dom";
 import utilFnc from "./util";
 
-//api key debkal 2f52dae47f49c0ec0fdafc4e6bbdb489
-
 console.log(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${process.env.API_KEY}`)
 class apiFnc{
     //retrieve coordinates based off location query
-    static async getCoord(query){
+    static async getCoord(){
         try {
-            const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=${process.env.API_KEY}`);
+            const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Chicago&APPID=${process.env.API_KEY}`);
             const coordResponse = await response.json()
-            return(coordResponse)
+            return(coordResponse.coord)
             
         }
         catch (error){
@@ -41,14 +39,14 @@ class apiFnc{
             console.error(error);
         }
     }
-    static async getWeather(coords,unit){
+    static async getWeather(){
         try{
             
-            const coord = coords;
+            const coord = await this.getCoord();
             const lat = coord.lat;
             const lon = coord.lon;
 
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unit}&appid=${process.env.API_KEY}`)
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.API_KEY}`)
             const weatherResponse = await response.json();
             return (weatherResponse);
         }
@@ -57,17 +55,17 @@ class apiFnc{
         }
     }
     //retrieve full api data works!
-    static async getForecast(coords,unit) {
+    static async getForecast() {
         try{
             
-            const coord = coords;
+            const coord = await this.getCoord();
             const lat = coord.lat;
             const lon = coord.lon;
 
-            const response = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=${unit}&appid=${process.env.API_KEY}`)
+            const response = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.API_KEY}`)
             const weatherResponse = await response.json();
-            const timezone= weatherResponse.timezone_offset;
-            return (weatherResponse);
+            const timezone= weatherResponse.timezone;
+            return (domFnc.setDataInDom(weatherResponse),utilFnc.dateFormat(timezone));
         }
         catch (error){
             console.error(error);
@@ -85,7 +83,7 @@ class apiFnc{
     }
 }
 
-//console.log(apiFnc.getWeather());
+console.log(apiFnc.getWeather());
 export default apiFnc;
 
 /* current weather api request*/

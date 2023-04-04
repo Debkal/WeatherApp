@@ -14,9 +14,6 @@ module.exports= {
     devServer:{
         static:'./dist',
     },
-    experiments:{
-        topLevelAwait:true,
-    },
     devtool: 'inline-source-map',
     output: {
         filename: 'main.js',
