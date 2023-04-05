@@ -1,4 +1,4 @@
-import { minTime,format,formatISO } from 'date-fns';
+import { minTime,format,formatISO, addMinutes,isValid, toDate } from 'date-fns';
 import {formatInTimeZone,getTimezoneOffset,zonedTimeToUtc} from 'date-fns-tz';
 import apiFnc from './api';
 
@@ -33,30 +33,18 @@ class  utilFnc{
     static async clockReset(ms){
         return setInterval(await apiFnc.getTimeOffset(),60000);
     }
-    static clockFnc(timeOff){
-        console.log(timeOff)
-        let offset = timeOff/3600;
-        console.log(offset)
-        let d = new Date();
-        let minute = d.getUTCMinutes();
-        let hour = d.getUTCHours();
-        hour += offset;
+    static clockFnc(data){
+        // only manipulate's Date Object not Date String
+        let dateObject = new Date(data.current.dt*1000);
+        let updateDateObject = addMinutes(dateObject,1);
+        // clockTime is a string
+        let clockTime = format(new Date(data.current.dt*1000),'MM/dd/yyyy HH:mm');
+        let updateTime =toDate(clockTime)
+        //log current day
+        let weekday = format(new Date(data.current.dt*1000),'EEEE');
+        let clockMinute = addMinutes(clockTime,1);
         
-        if(hour<0){
-           hour += 24;
-           console.log(hour)
-            return `${hour}:${minute}`;
-        }else if(minute.toString.length<= 1){
-            
-            minute = minute.toString()
-            minute.padEnd(2,'0');
-            minute.padStart(2,'0');
-                
-            return `${hour}:${minute}`;
-        }
-        else{
-            return `${hour}:${minute}`;
-        } 
+        console.log(updateDateObject);
     }
     static getIcon(query,daily=false){
         const weatherIcon = document.getElementById("weatherIcon");

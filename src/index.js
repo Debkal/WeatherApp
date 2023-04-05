@@ -47,7 +47,7 @@ async function initLoad (unit,initialLoad=false) {
         console.log(forecastWeatherData);
         //return(console.log(coords));
         unitReload=false;
-        return (domFnc.setDataInDom(currentWeatherData,forecastWeatherData,unit))
+        return (domFnc.setDataInDom(currentWeatherData,forecastWeatherData,unit),utilFnc.clockFnc(forecastWeatherData));
     } catch (error) {
         console.log(error);
     }
