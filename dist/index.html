@@ -54,145 +54,150 @@
         </div>
         <div class="forecast">
             <div class="forecast-btn">
-                <button class="forecast daily">Daily</button>
-                <button class="forecast hourly">Hourly</button>
+                <button id= 'dailyBtn' class="daily-btn">Daily</button>
+                <button id= 'hourlyBtn' class="hourly-btn">Hourly</button>
                 <div class="forecast hourly-cycle">
-                    <button class="hourly left-cycle">&laquo</button>
-                    <button class="hourly right-cycle">&raquo</button>
+                    <button id='hourlyLeftCycle' class="hourly left-cycle">&laquo</button>
+                    <button id='hourlyRightCycle' class="hourly right-cycle">&raquo</button>
                 </div>
             </div>
             <div class="forecast-hourly-outer" id="forecastHourlyOuter">
                 <div class="forecast-hourly-container" id = "forecastHourlyContainer">
-                    <div class ="forecast-hour" id="forecastHour">
-                        <div class="hourly hour" id="hourlyHour"></div>
-                        <div class="hourly temp" id="hourlyTemp"></div>
-                        <div class="hourly icon" id="hourlyIcon"></div>
+                    <div id="forecastHourlyTwelve" class="forecast-hourly-twelve active">
+                        <div class ="forecast-hour" id="forecastHour">
+                            <div class="hourly hour" id="hourlyHour"></div>
+                            <div class="hourly temp" id="hourlyTemp"></div>
+                            <div class="hourly icon" id="hourlyIcon"></div>
+                        </div>
+                        <div class ="forecast-hour plus-one" id="forecastHourPlusOne">
+                            <div class="hourly hour" id="hourlyHourOne"></div>
+                            <div class="hourly temp" id="hourlyTempOne"></div>
+                            <div class="hourly icon" id="hourlyIconOne"></div>
+                        </div>
+                        <div class ="forecast-hour plus-two" id="forecastHourPlusTwo">
+                            <div class="hourly hour" id="hourlyHourTwo"></div>
+                            <div class="hourly temp" id="hourlyTempTwo"></div>
+                            <div class="hourly icon" id="hourlyIconTwo"></div>
+                        </div>
+                        <div class ="forecast-hour plus-three" id="forecastHourPlusThree">
+                            <div class="hourly hour" id="hourlyHourThree"></div>
+                            <div class="hourly temp" id="hourlyTempThree"></div>
+                            <div class="hourly icon" id="hourlyIconThree"></div>
+                        </div>
+                        <div class ="forecast-hour plus-four" id="forecastHourPlusFour">
+                            <div class="hourly hour" id="hourlyHourFour"></div>
+                            <div class="hourly temp" id="hourlyTempFour"></div>
+                            <div class="hourly icon" id="hourlyIconFour"></div>
+                        </div>
+                        <div class ="forecast-hour plus-five" id="forecastHourPlusFive">
+                            <div class="hourly hour" id="hourlyHourFive"></div>
+                            <div class="hourly temp" id="hourlyTempFive"></div>
+                            <div class="hourly icon" id="hourlyIconFive"></div>
+                        </div>
+                        <div class ="forecast-hour plus-six" id="forecastHourPlusSix">
+                            <div class="hourly hour" id="hourlyHourSix"></div>
+                            <div class="hourly temp" id="hourlyTempSix"></div>
+                            <div class="hourly icon" id="hourlyIconSix"></div>
+                        </div>
+                        <div class ="forecast-hour plus-seven" id="forecastHourPlusSeven">
+                            <div class="hourly hour" id="hourlyHourSeven"></div>
+                            <div class="hourly temp" id="hourlyTempSeven"></div>
+                            <div class="hourly icon" id="hourlyIconSeven"></div>
+                        </div>
+                        <div class ="forecast-hour plus-eight" id="forecastHourPlusEight">
+                            <div class="hourly hour" id="hourlyHourEight"></div>
+                            <div class="hourly temp" id="hourlyTempEight"></div>
+                            <div class="hourly icon" id="hourlyIconEight"></div>
+                        </div>
+                        <div class ="forecast-hour plus-nine" id="forecastHourPlusNine">
+                            <div class="hourly hour" id="hourlyHourNine"></div>
+                            <div class="hourly temp" id="hourlyTempNine"></div>
+                            <div class="hourly icon" id="hourlyIconNine"></div>
+                        </div>
+                        <div class ="forecast-hour plus-ten" id="forecastHourPlusTen">
+                            <div class="hourly hour" id="hourlyHourTen"></div>
+                            <div class="hourly temp" id="hourlyTempTen"></div>
+                            <div class="hourly icon" id="hourlyIconTen"></div>
+                        </div>
+                        <div class ="forecast-hour plus-eleven" id="forecastHourPlusEleven">
+                            <div class="hourly hour" id="hourlyHourEleven"></div>
+                            <div class="hourly temp" id="hourlyTempEleven"></div>
+                            <div class="hourly icon" id="hourlyIconEleven"></div>
+                        </div>
                     </div>
-                    <div class ="forecast-hour plus-one" id="forecastHourPlusOne">
-                        <div class="hourly hour" id="hourlyHourOne"></div>
-                        <div class="hourly temp" id="hourlyTempOne"></div>
-                        <div class="hourly icon" id="hourlyIconOne"></div>
-                    </div>
-                    <div class ="forecast-hour plus-two" id="forecastHourPlusTwo">
-                        <div class="hourly hour" id="hourlyHourTwo"></div>
-                        <div class="hourly temp" id="hourlyTempTwo"></div>
-                        <div class="hourly icon" id="hourlyIconTwo"></div>
-                    </div>
-                    <div class ="forecast-hour plus-three" id="forecastHourPlusThree">
-                        <div class="hourly hour" id="hourlyHourThree"></div>
-                        <div class="hourly temp" id="hourlyTempThree"></div>
-                        <div class="hourly icon" id="hourlyIconThree"></div>
-                    </div>
-                    <div class ="forecast-hour plus-four" id="forecastHourPlusFour">
-                        <div class="hourly hour" id="hourlyHourFour"></div>
-                        <div class="hourly temp" id="hourlyTempFour"></div>
-                        <div class="hourly icon" id="hourlyIconFour"></div>
-                    </div>
-                    <div class ="forecast-hour plus-five" id="forecastHourPlusFive">
-                        <div class="hourly hour" id="hourlyHourFive"></div>
-                        <div class="hourly temp" id="hourlyTempFive"></div>
-                        <div class="hourly icon" id="hourlyIconFive"></div>
-                    </div>
-                    <div class ="forecast-hour plus-six" id="forecastHourPlusSix">
-                        <div class="hourly hour" id="hourlyHourSix"></div>
-                        <div class="hourly temp" id="hourlyTempSix"></div>
-                        <div class="hourly icon" id="hourlyIconSix"></div>
-                    </div>
-                    <div class ="forecast-hour plus-seven" id="forecastHourPlusSeven">
-                        <div class="hourly hour" id="hourlyHourSeven"></div>
-                        <div class="hourly temp" id="hourlyTempSeven"></div>
-                        <div class="hourly icon" id="hourlyIconSeven"></div>
-                    </div>
-                    <div class ="forecast-hour plus-eight" id="forecastHourPlusEight">
-                        <div class="hourly hour" id="hourlyHourEight"></div>
-                        <div class="hourly temp" id="hourlyTempEight"></div>
-                        <div class="hourly icon" id="hourlyIconEight"></div>
-                    </div>
-                    <div class ="forecast-hour plus-nine" id="forecastHourPlusNine">
-                        <div class="hourly hour" id="hourlyHourNine"></div>
-                        <div class="hourly temp" id="hourlyTempNine"></div>
-                        <div class="hourly icon" id="hourlyIconNine"></div>
-                    </div>
-                    <div class ="forecast-hour plus-ten" id="forecastHourPlusTen">
-                        <div class="hourly hour" id="hourlyHourTen"></div>
-                        <div class="hourly temp" id="hourlyTempTen"></div>
-                        <div class="hourly icon" id="hourlyIconTen"></div>
-                    </div>
-                    <div class ="forecast-hour plus-eleven" id="forecastHourPlusEleven">
-                        <div class="hourly hour" id="hourlyHourEleven"></div>
-                        <div class="hourly temp" id="hourlyTempEleven"></div>
-                        <div class="hourly icon" id="hourlyIconEleven"></div>
-                    </div>
-                    <div class ="forecast-hour-second" id="forecastHourSecond">
-                        <div class="hourly hour" id="hourlyHourSecond"></div>
-                        <div class="hourly temp" id="hourlyTempSecond"></div>
-                        <div class="hourly icon" id="hourlyIconSecond"></div>
-                    </div>
-                    <div class ="forecast-hour-second plus-one" id="forecastHourSecondPlusOne">
-                        <div class="hourly hour" id="hourlyHourSecondOne"></div>
-                        <div class="hourly temp" id="hourlyTempSecondOne"></div>
-                        <div class="hourly icon" id="hourlyIconSecondOne"></div>
-                    </div>
-                    <div class ="forecast-hour-second plus-two" id="forecastHourSecondPlusTwo">
-                        <div class="hourly hour" id="hourlyHourSecondTwo"></div>
-                        <div class="hourly temp" id="hourlyTempSecondTwo"></div>
-                        <div class="hourly icon" id="hourlyIconSecondTwo"></div>
-                    </div>
-                    <div class ="forecast-hour-second plus-three" id="forecastHourSecondPlusThree">
-                        <div class="hourly hour" id="hourlyHourSecondThree"></div>
-                        <div class="hourly temp" id="hourlyTempSecondThree"></div>
-                        <div class="hourly icon" id="hourlyIconSecondThree"></div>
-                    </div>
-                    <div class ="forecast-hour-second plus-four" id="forecastHourSecondPlusFour">
-                        <div class="hourly hour" id="hourlyHourSecondFour"></div>
-                        <div class="hourly temp" id="hourlyTempSecondFour"></div>
-                        <div class="hourly icon" id="hourlyIconSecondFour"></div>
-                    </div>
-                    <div class ="forecast-hour-second plus-five" id="forecastHourSecondPlusFive">
-                        <div class="hourly hour" id="hourlyHourSecondFive"></div>
-                        <div class="hourly temp" id="hourlyTempSecondFive"></div>
-                        <div class="hourly icon" id="hourlyIconSecondFive"></div>
-                    </div>
-                    <div class ="forecast-hour-second plus-six" id="forecastHourSecondPlusSix">
-                        <div class="hourly hour" id="hourlyHourSecondSix"></div>
-                        <div class="hourly temp" id="hourlyTempSecondSix"></div>
-                        <div class="hourly icon" id="hourlyIconSecondSix"></div>
-                    </div>
-                    <div class ="forecast-hour-second plus-seven" id="forecastHourSecondPlusSeven">
-                        <div class="hourly hour" id="hourlyHourSecondSeven"></div>
-                        <div class="hourly temp" id="hourlyTempSecondSeven"></div>
-                        <div class="hourly icon" id="hourlyIconSecondSeven"></div>
-                    </div>
-                    <div class ="forecast-hour-second plus-eight" id="forecastHourSecondPlusEight">
-                        <div class="hourly hour" id="hourlyHourSecondEight"></div>
-                        <div class="hourly temp" id="hourlyTempSecondEight"></div>
-                        <div class="hourly icon" id="hourlyIconSecondEight"></div>
-                    </div>
-                    <div class ="forecast-hour-second plus-nine" id="forecastHourSecondPlusNine">
-                        <div class="hourly hour" id="hourlyHourSecondNine"></div>
-                        <div class="hourly temp" id="hourlyTempSecondNine"></div>
-                        <div class="hourly icon" id="hourlyIconSecondNine"></div>
-                    </div>
-                    <div class ="forecast-hour-second plus-ten" id="forecastHourSecondPlusTen">
-                        <div class="hourly hour" id="hourlyHourSecondTen"></div>
-                        <div class="hourly temp" id="hourlyTempSecondTen"></div>
-                        <div class="hourly icon" id="hourlyIconSecondTen"></div>
-                    </div>
-                    <div class ="forecast-hour-second plus-eleven" id="forecastHourSecondPlusEleven">
-                        <div class="hourly hour" id="hourlyHourSecondEleven"></div>
-                        <div class="hourly temp" id="hourlyTempSecondEleven"></div>
-                        <div class="hourly icon" id="hourlyIconSecondEleven"></div>
+                    <div id='forecastHourlyTwentyfour'class="forecast-hourly-twentyfour">
+                        <div class ="forecast-hour-second" id="forecastHourSecond">
+                            <div class="hourly hour" id="hourlyHourSecond"></div>
+                            <div class="hourly temp" id="hourlyTempSecond"></div>
+                            <div class="hourly icon" id="hourlyIconSecond"></div>
+                        </div>
+                        <div class ="forecast-hour-second plus-one" id="forecastHourSecondPlusOne">
+                            <div class="hourly hour" id="hourlyHourSecondOne"></div>
+                            <div class="hourly temp" id="hourlyTempSecondOne"></div>
+                            <div class="hourly icon" id="hourlyIconSecondOne"></div>
+                        </div>
+                        <div class ="forecast-hour-second plus-two" id="forecastHourSecondPlusTwo">
+                            <div class="hourly hour" id="hourlyHourSecondTwo"></div>
+                            <div class="hourly temp" id="hourlyTempSecondTwo"></div>
+                            <div class="hourly icon" id="hourlyIconSecondTwo"></div>
+                        </div>
+                        <div class ="forecast-hour-second plus-three" id="forecastHourSecondPlusThree">
+                            <div class="hourly hour" id="hourlyHourSecondThree"></div>
+                            <div class="hourly temp" id="hourlyTempSecondThree"></div>
+                            <div class="hourly icon" id="hourlyIconSecondThree"></div>
+                        </div>
+                        <div class ="forecast-hour-second plus-four" id="forecastHourSecondPlusFour">
+                            <div class="hourly hour" id="hourlyHourSecondFour"></div>
+                            <div class="hourly temp" id="hourlyTempSecondFour"></div>
+                            <div class="hourly icon" id="hourlyIconSecondFour"></div>
+                        </div>
+                        <div class ="forecast-hour-second plus-five" id="forecastHourSecondPlusFive">
+                            <div class="hourly hour" id="hourlyHourSecondFive"></div>
+                            <div class="hourly temp" id="hourlyTempSecondFive"></div>
+                            <div class="hourly icon" id="hourlyIconSecondFive"></div>
+                        </div>
+                        <div class ="forecast-hour-second plus-six" id="forecastHourSecondPlusSix">
+                            <div class="hourly hour" id="hourlyHourSecondSix"></div>
+                            <div class="hourly temp" id="hourlyTempSecondSix"></div>
+                            <div class="hourly icon" id="hourlyIconSecondSix"></div>
+                        </div>
+                        <div class ="forecast-hour-second plus-seven" id="forecastHourSecondPlusSeven">
+                            <div class="hourly hour" id="hourlyHourSecondSeven"></div>
+                            <div class="hourly temp" id="hourlyTempSecondSeven"></div>
+                            <div class="hourly icon" id="hourlyIconSecondSeven"></div>
+                        </div>
+                        <div class ="forecast-hour-second plus-eight" id="forecastHourSecondPlusEight">
+                            <div class="hourly hour" id="hourlyHourSecondEight"></div>
+                            <div class="hourly temp" id="hourlyTempSecondEight"></div>
+                            <div class="hourly icon" id="hourlyIconSecondEight"></div>
+                        </div>
+                        <div class ="forecast-hour-second plus-nine" id="forecastHourSecondPlusNine">
+                            <div class="hourly hour" id="hourlyHourSecondNine"></div>
+                            <div class="hourly temp" id="hourlyTempSecondNine"></div>
+                            <div class="hourly icon" id="hourlyIconSecondNine"></div>
+                        </div>
+                        <div class ="forecast-hour-second plus-ten" id="forecastHourSecondPlusTen">
+                            <div class="hourly hour" id="hourlyHourSecondTen"></div>
+                            <div class="hourly temp" id="hourlyTempSecondTen"></div>
+                            <div class="hourly icon" id="hourlyIconSecondTen"></div>
+                        </div>
+                        <div class ="forecast-hour-second plus-eleven" id="forecastHourSecondPlusEleven">
+                            <div class="hourly hour" id="hourlyHourSecondEleven"></div>
+                            <div class="hourly temp" id="hourlyTempSecondEleven"></div>
+                            <div class="hourly icon" id="hourlyIconSecondEleven"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="forecast-daily">
+            <div class="forecast-daily active" id="dailyForecast">
                 <div id ="currentDay" class="forecast-day day">
                     <div class="daily day" id="dailyDay"></div>
                     <div class="daily temp" id="dailyTemp">
                         <div class="daily high" id="dailyHigh"></div>
                         <div class="daily low" id="dailyLow"></div>
                     </div>
-                    <div class="daily icon" id="dailyIcon"></div>
+                    <div class="daily icon" id="dailyIcon">
+                    </div>
                 </div>
                 <div id ="currentDayPlusOne" class="forecast-day day-plus-one">
                     <div class="daily day" id="dailyDayOne"></div>
@@ -200,7 +205,8 @@
                         <div class="daily high" id="dailyHighOne"></div>
                         <div class="daily low" id="dailyLowOne"></div>
                     </div>
-                    <div class="daily icon" id="dailyIconOne"></div>
+                    <div class="daily icon" id="dailyIconOne">
+                    </div>
                 </div>
                 <div id ="currentDayPlusTwo" class="forecast-day day-plus-two">
                     <div class="daily day" id="dailyDayTwo"></div>
@@ -208,7 +214,8 @@
                         <div class="daily high" id="dailyHighTwo"></div>
                         <div class="daily low" id="dailyLowTwo"></div>
                     </div>
-                    <div class="daily icon" id="dailyIconTwo"></div>
+                    <div class="daily icon" id="dailyIconTwo">
+                    </div>
                 </div>
                 <div id ="currentDayPlusThree" class="forecast-day day-plus-three">
                     <div class="daily day" id="dailyDayThree"></div>
@@ -234,11 +241,11 @@
                     </div>
                     <div class="daily icon" id="dailyIconFive"></div>
                 </div>
-                <div id ="currentDayPlusOne" class="forecast-day day-plus-six">
-                    <div class="daily day" id="dailyDay"></div>
-                    <div class="daily temp" id="dailyTemp">
-                        <div class="daily high" id="dailyHigh"></div>
-                        <div class="daily low" id="dailyLow"></div>
+                <div id ="currentDayPlusSix" class="forecast-day day-plus-six">
+                    <div class="daily day" id="dailyDaySix"></div>
+                    <div class="daily temp" id="dailyTempSix">
+                        <div class="daily high" id="dailyHighSix"></div>
+                        <div class="daily low" id="dailyLowSix"></div>
                     </div>
                     <div class="daily icon" id="dailyIconSix"></div>
                 </div>

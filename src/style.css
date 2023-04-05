@@ -6,3 +6,33 @@ body{
     display:flex;
     
 }
+.forecast-daily{
+    display:none;
+}
+.daily-btn{}
+
+.forecast-daily.active{
+    display:flex;
+    gap:2rem;
+}
+.forecast-hourly-outer.active{
+    display:flex;
+    gap:2rem;
+}
+.forecast-hourly-outer{
+    display:none;
+}
+.forecast-hourly-twelve.active{
+    display:flex;
+    gap:2rem;
+}
+.forecast-hourly-twelve{
+    display:none;
+}
+.forecast-hourly-twentyfour.active{
+    display:flex;
+    gap:2rem;
+}
+.forecast-hourly-twentyfour{
+    display:none;
+}

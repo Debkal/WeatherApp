@@ -61,7 +61,7 @@ class  utilFnc{
     static getIcon(query,daily=false){
         const weatherIcon = document.getElementById("weatherIcon");
         if(daily===true){
-            if(query === "Sunny"){
+            if(query === "Sunny" || query === "Clear"){
                 const sun = document.createElement("span")
                 sun.className = "material-icons";
                 sun.innerHTML = "sunny";
