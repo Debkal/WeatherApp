@@ -1,9 +1,10 @@
 import apiFnc from "./api";
 import utilFnc from "./util";
 import add from 'date-fns/add';
+import { minTime,format,formatISO, addMinutes,isValid, toDate } from 'date-fns';
 
 class domFnc{
-    static async setDataInDom(currentData,forecastData,unit){
+    static setDataInDom(currentData,forecastData,unit){
         //setting units
         let tempUnit = '°C'
         let speedUnit = 'kmph'
@@ -25,6 +26,23 @@ class domFnc{
         const humidity= document.getElementById('humidity');
         const precipitation= document.getElementById('precipitation');
         const wind= document.getElementById('wind');
+
+        
+        let date= utilFnc.DateFnc(forecastData);
+        console.log(date);
+        //setting current weather data
+        let displayDate = format(date, 'MM/dd/yyyy');
+        weatherDate.textContent = displayDate;
+        let hourlyDisplay = format(date, 'HH:mm');
+        console.log(hourlyDisplay);
+        weatherTime.textContent = hourlyDisplay;
+
+        /* setInterval(function(){
+        let newDate = utilFnc.DateFnc(forecastData);
+        let stringMinutes= format(newDate, 'HH:mm');
+        console.log(stringMinutes);
+        weatherTime.textContent = stringMinutes;},5000); */
+       
 
         //daily forecast data
         const dailyDay= document.getElementById('dailyDay');
@@ -293,7 +311,7 @@ class domFnc{
         if(weatherIcon.childNodes.length > 1){
             weatherIcon.removeChild(weatherIcon.childNodes[0]);
         }
-        weatherDate.textContent = currentData.dt_txt;
+        
         //displaying weather details
         feelTemp.textContent = `Feel's like ${Math.round(currentData.main.feels_like)} ${tempUnit}`;
         humidity.textContent = currentData.main.humidity+ ' %';
@@ -304,20 +322,11 @@ class domFnc{
         let localTime= '1'
         
         console.log(localTime+' dataindom');
-        return ;
     }
     static updateClock(){
-        let weatherTime= document.getElementById('weatherDateTime');
-        let weatherDate =document.getElementById('weatherDate'); 
-        console.log(weatherTime.textContent);
-        let text= weatherTime.outerHTML.replace(/<(?:.|\n)*?>/gm, '')
-        console.log(text)
-
-        let updateTime= add(new Date(weatherTime),{
-            minutes:1
-        })
-        console.log(updateTime)
-        return setInterval(function(){console.log(`${weatherTime.innerText}`)},10000);
+        
+        
+        
     }
     static getDataFromQuery(){
         const input = document.getElementById('queryBox');

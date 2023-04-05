@@ -33,9 +33,10 @@ class  utilFnc{
     static async clockReset(ms){
         return setInterval(await apiFnc.getTimeOffset(),60000);
     }
-    static clockFnc(data){
+    static DateFnc(data){
         // only manipulate's Date Object not Date String
         let dateObject = new Date(data.current.dt*1000);
+        return dateObject;
         let updateDateObject = addMinutes(dateObject,1);
         // clockTime is a string
         let clockTime = format(new Date(data.current.dt*1000),'MM/dd/yyyy HH:mm');
@@ -45,6 +46,9 @@ class  utilFnc{
         let clockMinute = addMinutes(clockTime,1);
         
         console.log(updateDateObject);
+    }
+    static dailyDateFnc(date){
+        
     }
     static getIcon(query,daily=false){
         const weatherIcon = document.getElementById("weatherIcon");
