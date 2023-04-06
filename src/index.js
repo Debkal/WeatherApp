@@ -78,3 +78,21 @@ hourlyRightCycle.addEventListener('click', (e) => {
     forecastHourlyTwentyfour.classList.add('active');
     forecastHourlyTwelve.classList.remove('active');
 })
+
+unitImperial.addEventListener('click', async () => {
+    units = 'imperial';
+    unitReload = true;
+    await initLoad(units,true);
+
+    unitMetric.classList.remove('active');
+    unitImperial.classList.add('active');
+});
+
+unitMetric.addEventListener('click', async () => {
+    units = 'metric';
+    unitReload = true;
+    await initLoad(units,true);
+
+    unitImperial.classList.remove('active');
+    unitMetric.classList.add('active');
+});
