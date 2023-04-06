@@ -15,6 +15,7 @@ class domFnc{
         }
         //declare variables
         //current weather data
+        const content = document.getElementById('content');
         const weatherDate = document.getElementById('weatherDate');
         const weatherTime= document.getElementById('weatherDateTime');
         const weatherLocation = document.getElementById('weatherLocation');
@@ -383,10 +384,25 @@ class domFnc{
         precipitation.textContent = `${forecastData.daily[0].pop*100} %`;
         wind.textContent = currentData.wind.speed+ ` ${speedUnit}`;``
 
+        content.appendChild(this.displayFooter());
         
     }
     static displayFooter(){
-        
+        const d=new Date();
+
+        const footer = document.createElement("footer");
+        footer.classList.add("footer");
+
+        const footerNote = document.createElement("p");
+        footerNote.textContent = `Developed by Debkal ${d.getFullYear()}`;
+
+        const gitLink = document.createElement("a");
+        gitLink.href="https://github.com/Debkal";
+
+        footer.appendChild(footerNote);
+        footer.appendChild(gitLink);
+
+        return footer;
     }
     static updateClock(){
         
