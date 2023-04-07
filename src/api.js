@@ -8,7 +8,7 @@ class apiFnc{
     //retrieve coordinates based off location query
     static async getCoord(query){
         try {
-            const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=${process.env.API_KEY}`);
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=${process.env.API_KEY}`);
             const coordResponse = await response.json()
             return(coordResponse)
             
