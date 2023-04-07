@@ -11,6 +11,7 @@ const unitImperial = document.getElementById('unitImperial');
 const unitMetric = document.getElementById('unitMetric');
 const dailyForecast = document.getElementById('dailyForecast');
 const hourlyForecast = document.getElementById('forecastHourlyOuter');
+const forecastHourlyCycle = document.getElementById('forecastHourlyCycle');
 const hourlyLeftCycle = document.getElementById('hourlyLeftCycle');
 const hourlyRightCycle = document.getElementById('hourlyRightCycle');
 const forecastHourlyTwelve = document.getElementById('forecastHourlyTwelve');
@@ -56,12 +57,19 @@ initLoad(units,true);
 
 dailyBtn.addEventListener('click', () => {
     dailyForecast.classList.add('active');
+    dailyBtn.classList.add('active');
     hourlyForecast.classList.remove('active');
+    forecastHourlyCycle.classList.remove('active');
+    hourlyBtn.classList.remove('active');
 })
 
 hourlyBtn.addEventListener('click', () => {
+    hourlyBtn.classList.add('active');
+    dailyBtn.classList.remove('active');
     dailyForecast.classList.remove('active');
     hourlyForecast.classList.add('active');
+    forecastHourlyCycle.classList.add('active');
+
 })
 
 queryBox.addEventListener('keydown', (e) => {
@@ -73,10 +81,14 @@ queryBox.addEventListener('keydown', (e) => {
 hourlyLeftCycle.addEventListener('click', (e) => {
     forecastHourlyTwelve.classList.add('active');
     forecastHourlyTwentyfour.classList.remove('active');
+    hourlyLeftCycle.classList.add('active');
+    hourlyRightCycle.classList.remove('active');
 })
 hourlyRightCycle.addEventListener('click', (e) => {
     forecastHourlyTwentyfour.classList.add('active');
     forecastHourlyTwelve.classList.remove('active');
+    hourlyLeftCycle.classList.remove('active');
+    hourlyRightCycle.classList.add('active');
 })
 
 unitImperial.addEventListener('click', async () => {

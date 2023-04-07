@@ -22,6 +22,7 @@ header{
     grid-template-columns: 0.75fr 2fr 0.75fr;
     grid-template-rows: 1fr .5fr .25fr;
     max-width: 85%;
+    margin: 0 auto;
 }
 .current-weather{
     font-size: 24px;
@@ -59,32 +60,109 @@ header{
 }
 .unit:hover{
     background-color:darkgray;
+    cursor: pointer;
 }
 .unit.active{
     border:solid 2px darkgray;
 }
-
+.weather.icon{
+    font-size:30px;
+    max-width: 30px;
+}
 .weather-details{
+    
+    font-size:20px;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     padding:2rem;
     grid-row: 1;
     grid-column: 3;
+    align-items: flex-start;
+}
+
+ul{
+    list-style: none;;
+}
+.detail-description{
+    font-size:16px;
+    text-decoration: underline;
+}
+.data-icon-container{
+    display: flex;
+    gap:0.5rem;
+}
+.current-icon{
+    font-size:36px;
+}
+.weather-detail.material-icons{
+    max-width: 22px;
 }
 .forecast{
     padding:1rem;
     grid-row: 2;
     grid-column:2;
-    
+    overflow:visible;
+}
+.forecast-hourly-daily-container{
+    font-size:18px;
 }
 .forecast-daily{
     display:none;
 }
-.daily-btn{}
+.forecast-btn{
+    margin-bottom: 2rem;
+}
+.forecastbtn{
+    font-size:18px;
+    font-weight:500;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border:none;
+    border-radius:0.5rem;
+    background-color:transparent;
+}
+.forecastbtn:hover{
+    background-color:darkgray;
+    cursor: pointer;
+}
+.forecastbtn.active{
+    border:solid 2px darkgray;
+}
+.forecast-hourly-cycle{
+    display:none;
+}
+.forecast-hourly-cycle.active{
+    display:flex;
+    margin-left: 8rem;
+    margin-bottom: 2rem;
+    
+}
 
+.hourly-cycle{
+    font-size:18px;
+    margin-top:0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border:none;
+    border-radius:0.5rem;
+    background-color:transparent;
+}
+.hourly-cycle:hover{
+    background-color:darkgray;
+    cursor: pointer;
+}
+.hourly-cycle.active{
+    border:solid 2px darkgray;
+}
 .forecast-daily.active{
     display:flex;
     gap:2rem;
+    margin-top:5rem;
 }
 .forecast-hourly-outer.active{
     display:flex;
@@ -106,6 +184,21 @@ header{
 }
 .forecast-hourly-twentyfour{
     display:none;
+}
+.forecast-day{
+    display:flex;
+    gap:0.5rem;
+    flex-direction: column;
+}
+.forecast-hour{
+    display:flex;
+    flex-direction: column;
+    gap:0.5rem;
+}
+.forecast-hour-second{
+    display:flex;
+    flex-direction: column;
+    gap:0.5rem;
 }
 footer{
     padding: 1rem;

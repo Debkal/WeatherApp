@@ -85,34 +85,34 @@ class  utilFnc{
                 return snow
             }}
         else{
-            if(query === "Sunny"){
+            if(query === "Sunny" || query === "Clear"){
                 const sun = document.createElement("span")
-                sun.className = "material-icons";
+                sun.className = "current-icon material-icons";
                 sun.innerHTML = "sunny";
                 return (weatherIcon.appendChild(sun))
             }else if(query == "Clouds"){
                 const cloud = document.createElement("span")
-                cloud.className = "material-icons";
+                cloud.className = "current-icon material-icons";
                 cloud.innerHTML = "cloud";
                 return (weatherIcon.appendChild(cloud))
             }else if(query === "partlycloudy"){
                 const partCloud = document.createElement("span")
-                partCloud.className = "material-icons";
+                partCloud.className = "current-icon material-icons";
                 partCloud.innerHTML = "partly_cloudy_day";
                 return (weatherIcon.appendChild(partCloud))
             }else if(query === "Rain"){
                 const rain = document.createElement("span")
-                rain.className = "material-symbols-outlined";
+                rain.className = "current-icon material-symbols-outlined";
                 rain.innerHTML = "rainy";
                 return (weatherIcon.appendChild(rain))
             }else if(query === "thunderStorm"){
                 const thunder = document.createElement("span")
-                thunder.className = "material-icons";
+                thunder.className = "current-icon material-icons";
                 thunder.innerHTML = "thunderstorm";
                 return (weatherIcon.appendChild(thunder))
             }else if(query === "snowy"){
                 const snow = document.createElement("span")
-                snow.className = "material-icons";
+                snow.className = "current-icon material-icons";
                 snow.innerHTML = "weather_snowy";
                 return (weatherIcon.appendChild(snow))
             }
