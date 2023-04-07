@@ -190,6 +190,7 @@ ul{
 .forecast-hourly-twentyfour.active{
     display:flex;
     gap:2rem;
+    
 }
 .forecast-hourly-twentyfour{
     display:none;
@@ -203,13 +204,13 @@ ul{
     display:flex;
     flex-direction: column;
     gap:0.5rem;
-    width: 35px;
+    width: 50px;
 }
 .forecast-hour-second{
     display:flex;
     flex-direction: column;
     gap:0.5rem;
-    width: 35px;
+    width: 50px;
 }
 footer{
     padding: 1rem;
